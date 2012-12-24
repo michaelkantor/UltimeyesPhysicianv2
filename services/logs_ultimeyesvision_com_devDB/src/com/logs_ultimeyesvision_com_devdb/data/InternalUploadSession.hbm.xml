@@ -1,0 +1,48 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.logs_ultimeyesvision_com_devdb.data.InternalUploadSession" table="internal_upload_session" schema="public" dynamic-insert="false" dynamic-update="false">
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="internalSessionKey" type="string">
+            <column name="internal_session_key" not-null="true"/>
+        </property>
+        <property name="license" type="string">
+            <column name="license"/>
+        </property>
+        <property name="internalSessionTimestamp" type="timestamp">
+            <column name="internal_session_timestamp" length="29"/>
+        </property>
+        <set name="internalUploadSessionFiles" inverse="true" cascade="">
+            <key>
+                <column name="internal_upload_session_id" not-null="true"/>
+            </key>
+            <one-to-many class="com.logs_ultimeyesvision_com_devdb.data.InternalUploadSessionFile"/>
+        </set>
+        <set name="ultimeyesLogDynamics" inverse="true" cascade="">
+            <key>
+                <column name="internal_upload_session_id" not-null="true"/>
+            </key>
+            <one-to-many class="com.logs_ultimeyesvision_com_devdb.data.UltimeyesLogDynamic"/>
+        </set>
+        <set name="ultimeyesLogSummaries" inverse="true" cascade="">
+            <key>
+                <column name="internal_upload_session_id" not-null="true"/>
+            </key>
+            <one-to-many class="com.logs_ultimeyesvision_com_devdb.data.UltimeyesLogSummary"/>
+        </set>
+        <set name="ultimeyesLogStatics" inverse="true" cascade="">
+            <key>
+                <column name="internal_upload_session_id" not-null="true"/>
+            </key>
+            <one-to-many class="com.logs_ultimeyesvision_com_devdb.data.UltimeyesLogStatic"/>
+        </set>
+        <set name="ultimeyesLogCalibrations" inverse="true" cascade="">
+            <key>
+                <column name="internal_upload_session_id" not-null="true"/>
+            </key>
+            <one-to-many class="com.logs_ultimeyesvision_com_devdb.data.UltimeyesLogCalibration"/>
+        </set>
+    </class>
+</hibernate-mapping>

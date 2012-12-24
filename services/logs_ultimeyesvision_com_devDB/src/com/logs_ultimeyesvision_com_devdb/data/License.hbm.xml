@@ -1,0 +1,39 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.logs_ultimeyesvision_com_devdb.data.License" table="license" schema="public" dynamic-insert="false" dynamic-update="false">
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="key" type="string">
+            <column name="key" length="50" not-null="true"/>
+        </property>
+        <property name="seatsAllocated" type="integer">
+            <column name="seats_allocated" not-null="true"/>
+        </property>
+        <property name="macMax" type="integer">
+            <column name="mac_max" not-null="true"/>
+        </property>
+        <property name="leasePeriod" type="short">
+            <column name="lease_period"/>
+        </property>
+        <property name="createdAt" type="timestamp">
+            <column name="created_at" length="29"/>
+        </property>
+        <property name="updatedAt" type="timestamp">
+            <column name="updated_at" length="29"/>
+        </property>
+        <set name="customerProductAssociates" inverse="true" cascade="">
+            <key>
+                <column name="license_id"/>
+            </key>
+            <one-to-many class="com.logs_ultimeyesvision_com_devdb.data.CustomerProductAssociate"/>
+        </set>
+        <set name="licenseMacs" inverse="true" cascade="">
+            <key>
+                <column name="license_id" not-null="true"/>
+            </key>
+            <one-to-many class="com.logs_ultimeyesvision_com_devdb.data.LicenseMac"/>
+        </set>
+    </class>
+</hibernate-mapping>

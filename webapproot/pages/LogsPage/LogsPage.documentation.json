@@ -1,0 +1,3 @@
+{
+	"listSummariesSVar": "<i>Generated Documentation</i>\n<h4>Event Handlers</h4><div style='margin-left:15px;'>No event handlers</div><h4>The following object event handlers activate this component</h4><ul  style='padding-left:0px;list-style-position: inside;margin-left: 15px;'>\nNo bindings</ul><h4>This object has the following bindings</h4><ul  style='padding-left:0px;list-style-position: inside;margin-left: 15px;'>\nNo bindings</ul><h4>The following objects are bound to this</h4><ul  style='padding-left:0px;list-style-position: inside;margin-left: 15px;'>\n<li><b>fullSummariesGrid.dataSet</b> is bound to <i>listSummariesSVar</i></li>\n<li><b>ultimeyeslogsummaryDojoGrid.dataSet</b> is bound to <i>listSummariesSVar</i></li>\n</ul>"
+}

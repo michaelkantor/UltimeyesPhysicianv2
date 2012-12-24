@@ -1,0 +1,54 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.logs_ultimeyesvision_com_devdb.data.UltimeyesLogCalibration" table="ultimeyes_log_calibration" schema="public" dynamic-insert="false" dynamic-update="false">
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="dateTaken" type="timestamp">
+            <column name="date_taken" length="29" not-null="true"/>
+        </property>
+        <property name="sessionNumber" type="integer">
+            <column name="session_number" not-null="true"/>
+        </property>
+        <property name="atStart" type="integer">
+            <column name="at_start"/>
+        </property>
+        <property name="screen" type="integer">
+            <column name="screen"/>
+        </property>
+        <property name="gaborCount" type="integer">
+            <column name="gabor_count"/>
+        </property>
+        <property name="sf" type="float">
+            <column name="sf" precision="8"/>
+        </property>
+        <property name="contrast" type="float">
+            <column name="contrast" precision="8"/>
+        </property>
+        <property name="locationX" type="float">
+            <column name="location_x" precision="8"/>
+        </property>
+        <property name="locationY" type="float">
+            <column name="location_y" precision="8"/>
+        </property>
+        <property name="clicked" type="integer">
+            <column name="clicked"/>
+        </property>
+        <property name="createdAt" type="timestamp">
+            <column name="created_at" length="29"/>
+        </property>
+        <property name="updatedAt" type="timestamp">
+            <column name="updated_at" length="29"/>
+        </property>
+        <many-to-one name="customer" class="com.logs_ultimeyesvision_com_devdb.data.Customer">
+            <column name="customer_id"/>
+        </many-to-one>
+        <many-to-one name="internalUploadSession" class="com.logs_ultimeyesvision_com_devdb.data.InternalUploadSession">
+            <column name="internal_upload_session_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="internalUploadSessionFile" class="com.logs_ultimeyesvision_com_devdb.data.InternalUploadSessionFile">
+            <column name="internal_upload_session_file_id" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.logs_ultimeyesvision_com_devdb.data.ViewSeatsUsedPerReseller" table="view_seats_used_per_reseller" schema="public" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.logs_ultimeyesvision_com_devdb.data.ViewSeatsUsedPerResellerId">
+            <key-property name="resellerId" type="integer">
+                <column name="reseller_id"/>
+            </key-property>
+            <key-property name="name" type="string">
+                <column name="name" length="50"/>
+            </key-property>
+            <key-property name="seatsAllocated" type="integer">
+                <column name="seats_allocated"/>
+            </key-property>
+            <key-property name="seatsUsed" type="long">
+                <column name="seats_used"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

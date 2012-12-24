@@ -1,0 +1,28 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.logs_ultimeyesvision_com_devdb.data.ViewResellerCustomerProductAssociate" table="view_reseller_customer_product_associate" schema="public" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.logs_ultimeyesvision_com_devdb.data.ViewResellerCustomerProductAssociateId">
+            <key-property name="customerId" type="integer">
+                <column name="customer_id"/>
+            </key-property>
+            <key-property name="licenseId" type="integer">
+                <column name="license_id"/>
+            </key-property>
+            <key-property name="productId" type="integer">
+                <column name="product_id"/>
+            </key-property>
+            <key-property name="username" type="string">
+                <column name="username"/>
+            </key-property>
+            <key-property name="resellerId" type="integer">
+                <column name="reseller_id"/>
+            </key-property>
+            <key-property name="resellerName" type="string">
+                <column name="reseller_name" length="50"/>
+            </key-property>
+            <key-property name="seatsAllocatedPerReseller" type="integer">
+                <column name="seats_allocated_per_reseller"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

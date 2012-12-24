@@ -1,0 +1,120 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.logs_ultimeyesvision_com_devdb.data.UltimeyesLogSummary" table="ultimeyes_log_summary" schema="public" dynamic-insert="false" dynamic-update="false">
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="dateTaken" type="timestamp">
+            <column name="date_taken" length="29" not-null="true"/>
+        </property>
+        <property name="sessionNumber" type="integer">
+            <column name="session_number" not-null="true"/>
+        </property>
+        <property name="excercise" type="integer">
+            <column name="excercise" not-null="true"/>
+        </property>
+        <property name="type" type="integer">
+            <column name="type" not-null="true"/>
+        </property>
+        <property name="distractorLevel" type="float">
+            <column name="distractor_level" precision="8"/>
+        </property>
+        <property name="calSf64" type="float">
+            <column name="cal_sf_64" precision="8"/>
+        </property>
+        <property name="calSf32" type="float">
+            <column name="cal_sf_32" precision="8"/>
+        </property>
+        <property name="calSf16" type="float">
+            <column name="cal_sf_16" precision="8"/>
+        </property>
+        <property name="calSf8" type="float">
+            <column name="cal_sf_8" precision="8"/>
+        </property>
+        <property name="calSf4" type="float">
+            <column name="cal_sf_4" precision="8"/>
+        </property>
+        <property name="casSf2" type="float">
+            <column name="cas_sf_2" precision="8"/>
+        </property>
+        <property name="calOrientation0" type="integer">
+            <column name="cal_orientation_0"/>
+        </property>
+        <property name="calOrientation45" type="integer">
+            <column name="cal_orientation_45"/>
+        </property>
+        <property name="calOrientation90" type="integer">
+            <column name="cal_orientation_90"/>
+        </property>
+        <property name="calOrientation135" type="integer">
+            <column name="cal_orientation_135"/>
+        </property>
+        <property name="cushionSf64" type="float">
+            <column name="cushion_sf_64" precision="8"/>
+        </property>
+        <property name="cushionSf32" type="float">
+            <column name="cushion_sf_32" precision="8"/>
+        </property>
+        <property name="cushionSf16" type="float">
+            <column name="cushion_sf_16" precision="8"/>
+        </property>
+        <property name="cushionSf8" type="float">
+            <column name="cushion_sf_8" precision="8"/>
+        </property>
+        <property name="cushionSf4" type="float">
+            <column name="cushion_sf_4" precision="8"/>
+        </property>
+        <property name="cushionSf2" type="float">
+            <column name="cushion_sf_2" precision="8"/>
+        </property>
+        <property name="soa" type="float">
+            <column name="soa" precision="8"/>
+        </property>
+        <property name="calcSize82" type="float">
+            <column name="calc_size_82" precision="8"/>
+        </property>
+        <property name="calcSize42" type="float">
+            <column name="calc_size_42" precision="8"/>
+        </property>
+        <property name="calcSize22" type="float">
+            <column name="calc_size_22" precision="8"/>
+        </property>
+        <property name="calcSize13" type="float">
+            <column name="calc_size_13" precision="8"/>
+        </property>
+        <property name="calcSize7" type="float">
+            <column name="calc_size_7" precision="8"/>
+        </property>
+        <property name="calcSize6" type="float">
+            <column name="calc_size_6" precision="8"/>
+        </property>
+        <property name="score" type="integer">
+            <column name="score"/>
+        </property>
+        <property name="screenDistance" type="float">
+            <column name="screen_distance" precision="8"/>
+        </property>
+        <property name="screenWidth" type="float">
+            <column name="screen_width" precision="8"/>
+        </property>
+        <property name="createdAt" type="timestamp">
+            <column name="created_at" length="29"/>
+        </property>
+        <property name="updatedAt" type="timestamp">
+            <column name="updated_at" length="29"/>
+        </property>
+        <property name="screenResX" type="integer">
+            <column name="screen_res_x"/>
+        </property>
+        <many-to-one name="customer" class="com.logs_ultimeyesvision_com_devdb.data.Customer">
+            <column name="customer_id"/>
+        </many-to-one>
+        <many-to-one name="internalUploadSession" class="com.logs_ultimeyesvision_com_devdb.data.InternalUploadSession">
+            <column name="internal_upload_session_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="internalUploadSessionFile" class="com.logs_ultimeyesvision_com_devdb.data.InternalUploadSessionFile">
+            <column name="internal_upload_session_file_id" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

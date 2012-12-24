@@ -1,0 +1,19 @@
+button.wmtablayers-tab { 
+    border-width: 1px !important;
+}
+
+.HeaderContent {
+    background-color: #1B1B1B !important;
+}
+
+html.WMApp body .ueLogoBackground {
+   background-image: url(resources/images/UE_Icon_Faint.png);
+   background-repeat: no-repeat;
+   background-position: 50% 50%;
+}
+
+.wmbutton:active {
+    -webkit-box-shadow: 0px 0px 0px black !important;
+    -moz-box-shadow: 0px 0px 0px black !important;
+    box-shadow: 0px 0px 0px black !important;
+}

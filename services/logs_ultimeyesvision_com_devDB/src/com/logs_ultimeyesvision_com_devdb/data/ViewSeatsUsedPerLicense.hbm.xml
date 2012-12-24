@@ -1,0 +1,31 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.logs_ultimeyesvision_com_devdb.data.ViewSeatsUsedPerLicense" table="view_seats_used_per_license" schema="public" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.logs_ultimeyesvision_com_devdb.data.ViewSeatsUsedPerLicenseId">
+            <key-property name="licenseId" type="integer">
+                <column name="license_id"/>
+            </key-property>
+            <key-property name="key" type="string">
+                <column name="key" length="50"/>
+            </key-property>
+            <key-property name="seatsUsedPerLicense" type="long">
+                <column name="seats_used_per_license"/>
+            </key-property>
+            <key-property name="leasePeriod" type="short">
+                <column name="lease_period"/>
+            </key-property>
+            <key-property name="seatsAllocatedPerLicense" type="integer">
+                <column name="seats_allocated_per_license"/>
+            </key-property>
+            <key-property name="resellerId" type="integer">
+                <column name="reseller_id"/>
+            </key-property>
+            <key-property name="resellerName" type="string">
+                <column name="reseller_name" length="50"/>
+            </key-property>
+            <key-property name="seatsAllocatedPerReseller" type="integer">
+                <column name="seats_allocated_per_reseller"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

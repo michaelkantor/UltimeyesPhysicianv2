@@ -1,0 +1,5 @@
+{
+	"deleteCustomerAssociateSVar": " Called from the delete customer button", 
+	"deleteCustomerSVar": " Called from deleteCustomerAssociateSVar which is called from the delete customer button", 
+	"deleteLicenseSVar": " Not currently used"
+}

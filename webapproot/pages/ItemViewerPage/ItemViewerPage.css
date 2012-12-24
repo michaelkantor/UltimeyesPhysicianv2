@@ -1,0 +1,5 @@
+html.WMApp body .list .linkedItem {
+   text-decoration: underline;
+   font-style: italic;
+}
+

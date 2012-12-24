@@ -1,0 +1,33 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.logs_ultimeyesvision_com_devdb.data.CustomerProductAssociate" table="customer_product_associate" schema="public" dynamic-insert="false" dynamic-update="false">
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="createdAt" type="timestamp">
+            <column name="created_at" length="29"/>
+        </property>
+        <property name="updatedAt" type="timestamp">
+            <column name="updated_at" length="29"/>
+        </property>
+        <property name="username" type="string">
+            <column name="username"/>
+        </property>
+        <property name="swregXml" type="string">
+            <column name="swreg_xml"/>
+        </property>
+        <property name="disabled" type="boolean">
+            <column name="disabled"/>
+        </property>
+        <many-to-one name="customer" class="com.logs_ultimeyesvision_com_devdb.data.Customer">
+            <column name="customer_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="license" class="com.logs_ultimeyesvision_com_devdb.data.License">
+            <column name="license_id"/>
+        </many-to-one>
+        <many-to-one name="product" class="com.logs_ultimeyesvision_com_devdb.data.Product">
+            <column name="product_id" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

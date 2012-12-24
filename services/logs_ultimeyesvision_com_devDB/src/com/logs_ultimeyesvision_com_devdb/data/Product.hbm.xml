@@ -1,0 +1,36 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.logs_ultimeyesvision_com_devdb.data.Product" table="product" schema="public" dynamic-insert="false" dynamic-update="false">
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="name" type="string">
+            <column name="name"/>
+        </property>
+        <property name="version" type="string">
+            <column name="version"/>
+        </property>
+        <property name="createdAt" type="timestamp">
+            <column name="created_at" length="29"/>
+        </property>
+        <property name="updatedAt" type="timestamp">
+            <column name="updated_at" length="29"/>
+        </property>
+        <property name="swregProductCode" type="string">
+            <column name="swreg_product_code" length="20"/>
+        </property>
+        <set name="customerProductAssociates" inverse="true" cascade="">
+            <key>
+                <column name="product_id" not-null="true"/>
+            </key>
+            <one-to-many class="com.logs_ultimeyesvision_com_devdb.data.CustomerProductAssociate"/>
+        </set>
+        <set name="physicianProductAssociates" inverse="true" cascade="">
+            <key>
+                <column name="product_id" not-null="true"/>
+            </key>
+            <one-to-many class="com.logs_ultimeyesvision_com_devdb.data.PhysicianProductAssociate"/>
+        </set>
+    </class>
+</hibernate-mapping>

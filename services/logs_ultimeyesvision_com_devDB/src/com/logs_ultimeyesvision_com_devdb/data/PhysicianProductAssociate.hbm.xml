@@ -1,0 +1,35 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.logs_ultimeyesvision_com_devdb.data.PhysicianProductAssociate" table="physician_product_associate" schema="public" dynamic-insert="false" dynamic-update="false">
+        <composite-id name="id" class="com.logs_ultimeyesvision_com_devdb.data.PhysicianProductAssociateId">
+            <key-property name="physicianId" type="integer">
+                <column name="physician_id"/>
+            </key-property>
+            <key-property name="productId" type="integer">
+                <column name="product_id"/>
+            </key-property>
+            <key-property name="createdAt" type="timestamp">
+                <column name="created_at" length="29"/>
+            </key-property>
+            <key-property name="updatedAt" type="timestamp">
+                <column name="updated_at" length="29"/>
+            </key-property>
+        </composite-id>
+        <many-to-one
+            name="physician"
+            class="com.logs_ultimeyesvision_com_devdb.data.Physician"
+            update="false"
+            insert="false"
+            fetch="select">
+            <column name="physician_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one
+            name="product"
+            class="com.logs_ultimeyesvision_com_devdb.data.Product"
+            update="false"
+            insert="false"
+            fetch="select">
+            <column name="product_id" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

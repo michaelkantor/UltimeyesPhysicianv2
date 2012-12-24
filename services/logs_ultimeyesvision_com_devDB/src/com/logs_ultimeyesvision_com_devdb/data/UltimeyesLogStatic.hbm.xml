@@ -1,0 +1,90 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.logs_ultimeyesvision_com_devdb.data.UltimeyesLogStatic" table="ultimeyes_log_static" schema="public" dynamic-insert="false" dynamic-update="false">
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="dateTaken" type="timestamp">
+            <column name="date_taken" length="29" not-null="true"/>
+        </property>
+        <property name="sessionNumber" type="integer">
+            <column name="session_number" not-null="true"/>
+        </property>
+        <property name="excerciseNumber" type="integer">
+            <column name="excercise_number"/>
+        </property>
+        <property name="programNumber" type="integer">
+            <column name="program_number"/>
+        </property>
+        <property name="stimOnSetTime" type="integer">
+            <column name="stim_on_set_time"/>
+        </property>
+        <property name="stimType" type="integer">
+            <column name="stim_type"/>
+        </property>
+        <property name="size" type="float">
+            <column name="size" precision="8"/>
+        </property>
+        <property name="locationX" type="float">
+            <column name="location_x" precision="8"/>
+        </property>
+        <property name="locationY" type="float">
+            <column name="location_y" precision="8"/>
+        </property>
+        <property name="orientation" type="float">
+            <column name="orientation" precision="8"/>
+        </property>
+        <property name="sf" type="float">
+            <column name="sf" precision="8"/>
+        </property>
+        <property name="onsetContrast" type="float">
+            <column name="onset_contrast" precision="8"/>
+        </property>
+        <property name="whenClicked" type="integer">
+            <column name="when_clicked"/>
+        </property>
+        <property name="contrastWhenClicked" type="float">
+            <column name="contrast_when_clicked" precision="8"/>
+        </property>
+        <property name="wasFlashingWhenClicked" type="integer">
+            <column name="was_flashing_when_clicked"/>
+        </property>
+        <property name="wasMadeSuperBright" type="integer">
+            <column name="was_made_super_bright"/>
+        </property>
+        <property name="numTeleports" type="integer">
+            <column name="num_teleports"/>
+        </property>
+        <property name="currentCalValue" type="float">
+            <column name="current_cal_value" precision="8"/>
+        </property>
+        <property name="currentCushion" type="float">
+            <column name="current_cushion" precision="8"/>
+        </property>
+        <property name="cushionChange" type="float">
+            <column name="cushion_change" precision="8"/>
+        </property>
+        <property name="currentSoaVal" type="float">
+            <column name="current_soa_val" precision="8"/>
+        </property>
+        <property name="bonusMuliplier" type="float">
+            <column name="bonus_muliplier" precision="8"/>
+        </property>
+        <property name="createdAt" type="timestamp">
+            <column name="created_at" length="29"/>
+        </property>
+        <property name="updatedAt" type="timestamp">
+            <column name="updated_at" length="29"/>
+        </property>
+        <many-to-one name="customer" class="com.logs_ultimeyesvision_com_devdb.data.Customer">
+            <column name="customer_id"/>
+        </many-to-one>
+        <many-to-one name="internalUploadSession" class="com.logs_ultimeyesvision_com_devdb.data.InternalUploadSession">
+            <column name="internal_upload_session_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="internalUploadSessionFile" class="com.logs_ultimeyesvision_com_devdb.data.InternalUploadSessionFile">
+            <column name="internal_upload_session_file_id" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

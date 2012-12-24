@@ -1,0 +1,109 @@
+{
+	"methods": [{
+		"name": "getCalibrationLogs",
+		"operationType": "hqlquery",
+		"parameters": [{
+			"name": "customerId",
+			"type": "java.lang.Integer"
+		}, {
+			"name": "fileIdList",
+			"type": "[java.lang.Integer]"
+		}],
+		"returnType": "[com.logs_ultimeyesvision_com_devdb.data.UltimeyesLogCalibration]"
+	}, {
+		"name": "getCalibrationSessionAndExerciseNumbersForCustomer",
+		"operationType": "hqlquery",
+		"parameters": [{
+			"name": "customerId",
+			"type": "java.lang.Integer"
+		}, {
+			"name": "sessionNumberList",
+			"type": "[java.lang.Integer]"
+		}],
+		"returnType": "[com.logs_ultimeyesvision_com_devdb.data.output.GetCalibrationSessionAndExerciseNumbersForCustomerRtnType]"
+	}, {
+		"name": "getDynamicLogs",
+		"operationType": "hqlquery",
+		"parameters": [{
+			"name": "customerId",
+			"type": "java.lang.Integer"
+		}, {
+			"name": "fileIdList",
+			"type": "[java.lang.Integer]"
+		}],
+		"returnType": "[com.logs_ultimeyesvision_com_devdb.data.UltimeyesLogDynamic]"
+	}, {
+		"name": "getDynamicSessionAndExerciseNumbersForCustomer",
+		"operationType": "hqlquery",
+		"parameters": [{
+			"name": "customerId",
+			"type": "java.lang.Integer"
+		}, {
+			"name": "sessionNumberList",
+			"type": "[java.lang.Integer]"
+		}],
+		"returnType": "[com.logs_ultimeyesvision_com_devdb.data.output.GetDynamicSessionAndExerciseNumbersForCustomerRtnType]"
+	}, {
+		"name": "getSessionIdsForCustomer",
+		"operationType": "hqlquery",
+		"parameters": [{
+			"name": "customerId",
+			"type": "java.lang.Integer"
+		}],
+		"returnType": "[com.logs_ultimeyesvision_com_devdb.data.output.GetSessionIdsForCustomerRtnType]"
+	}, {
+		"name": "getStaticLogs",
+		"operationType": "hqlquery",
+		"parameters": [{
+			"name": "customerId",
+			"type": "java.lang.Integer"
+		}, {
+			"name": "fileIdList",
+			"type": "[java.lang.Integer]"
+		}],
+		"returnType": "[com.logs_ultimeyesvision_com_devdb.data.UltimeyesLogStatic]"
+	}, {
+		"name": "getStaticSessionAndExerciseNumbersForCustomer",
+		"operationType": "hqlquery",
+		"parameters": [{
+			"name": "customerId",
+			"type": "java.lang.Integer"
+		}, {
+			"name": "sessionNumberList",
+			"type": "[java.lang.Integer]"
+		}],
+		"returnType": "[com.logs_ultimeyesvision_com_devdb.data.output.GetStaticSessionAndExerciseNumbersForCustomerRtnType]"
+	}, {
+		"name": "getSummariesByLogFileId",
+		"operationType": "hqlquery",
+		"parameters": [{
+			"name": "logIdList",
+			"type": "[java.lang.Integer]"
+		}, {
+			"name": "customerId",
+			"type": "java.lang.Integer"
+		}],
+		"returnType": "[com.logs_ultimeyesvision_com_devdb.data.UltimeyesLogSummary]"
+	}, {
+		"name": "getSummariesForExerciseId",
+		"operationType": "hqlquery",
+		"parameters": [{
+			"name": "exerciseId",
+			"type": "java.lang.Integer"
+		}, {
+			"name": "customerId",
+			"type": "java.lang.Integer"
+		}],
+		"returnType": "[com.logs_ultimeyesvision_com_devdb.data.UltimeyesLogSummary]"
+	}, {
+		"name": "getUltimeyesLogCalibrationById",
+		"operationType": "hqlquery",
+		"parameters": [{
+			"name": "id",
+			"type": "java.lang.Integer"
+		}],
+		"returnType": "com.logs_ultimeyesvision_com_devdb.data.UltimeyesLogCalibration"
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "logs_ultimeyesvision_com_devDB.json"
+}

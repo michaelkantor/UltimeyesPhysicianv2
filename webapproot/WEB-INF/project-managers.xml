@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<beans xsi:schemaLocation="http://schema.cloudfoundry.org/spring http://schema.cloudfoundry.org/spring/cloudfoundry-spring-0.8.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd" xmlns="http://www.springframework.org/schema/beans" xmlns:cloud="http://schema.cloudfoundry.org/spring" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <bean class="com.wavemaker.runtime.service.TypeManager" parent="typeManagerBase" scope="singleton" id="typeManager">
+        <property name="types">
+            <map merge="true">
+                <entry key="logs_ultimeyesvision_com_devDB">
+                    <list>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.AvailableLicenseKeys</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.Customer</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.CustomerProductAssociate</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.CustomerResellerAssociate</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.CustomerType</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.InternalUploadSession</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.InternalUploadSessionFile</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.License</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.LicenseMac</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.Physician</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.PhysicianProductAssociate</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.Product</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.Reseller</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.ResellerUsers</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.UltimeyesLogCalibration</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.UltimeyesLogDynamic</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.UltimeyesLogStatic</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.UltimeyesLogSummary</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.ViewResellerCustomerProductAssociate</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.ViewSeatsUsedPerLicense</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.ViewSeatsUsedPerReseller</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.AvailableLicenseKeysId</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.ViewSeatsUsedPerResellerId</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.ViewResellerCustomerProductAssociateId</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.LicenseMacId</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.PhysicianProductAssociateId</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.ViewSeatsUsedPerLicenseId</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.output.GetCalibrationSessionAndExerciseNumbersForCustomerRtnType</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.output.GetDynamicSessionAndExerciseNumbersForCustomerRtnType</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.output.GetSessionIdsForCustomerRtnType</value>
+                        <value>com.logs_ultimeyesvision_com_devdb.data.output.GetStaticSessionAndExerciseNumbersForCustomerRtnType</value>
+                    </list>
+                </entry>
+                <entry key="securityService">
+                    <list/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+</beans>

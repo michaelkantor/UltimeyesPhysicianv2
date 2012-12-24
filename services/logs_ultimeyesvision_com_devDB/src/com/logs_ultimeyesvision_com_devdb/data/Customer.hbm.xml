@@ -1,0 +1,120 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.logs_ultimeyesvision_com_devdb.data.Customer" table="customer" schema="public" dynamic-insert="false" dynamic-update="false">
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="firstName" type="string">
+            <column name="first_name" not-null="true"/>
+        </property>
+        <property name="lastName" type="string">
+            <column name="last_name" not-null="true"/>
+        </property>
+        <property name="middleInitial" type="string">
+            <column name="middle_initial" length="5"/>
+        </property>
+        <property name="ssn" type="string">
+            <column name="ssn"/>
+        </property>
+        <property name="tin" type="string">
+            <column name="tin"/>
+        </property>
+        <property name="dob" type="date">
+            <column name="dob" length="13"/>
+        </property>
+        <property name="address" type="string">
+            <column name="address"/>
+        </property>
+        <property name="phone" type="string">
+            <column name="phone"/>
+        </property>
+        <property name="email" type="string">
+            <column name="email"/>
+        </property>
+        <property name="createdAt" type="timestamp">
+            <column name="created_at" length="29"/>
+        </property>
+        <property name="updatedAt" type="timestamp">
+            <column name="updated_at" length="29"/>
+        </property>
+        <property name="notes" type="string">
+            <column name="notes"/>
+        </property>
+        <property name="address2" type="string">
+            <column name="address_2"/>
+        </property>
+        <property name="companyName" type="string">
+            <column name="company_name"/>
+        </property>
+        <property name="city" type="string">
+            <column name="city"/>
+        </property>
+        <property name="region" type="string">
+            <column name="region"/>
+        </property>
+        <property name="country" type="string">
+            <column name="country"/>
+        </property>
+        <property name="postalCode" type="string">
+            <column name="postal_code"/>
+        </property>
+        <property name="telephone" type="string">
+            <column name="telephone"/>
+        </property>
+        <property name="login" type="string">
+            <column name="login" length="50"/>
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="50"/>
+        </property>
+        <many-to-one name="customerType" class="com.logs_ultimeyesvision_com_devdb.data.CustomerType">
+            <column name="customer_type_id"/>
+        </many-to-one>
+        <many-to-one name="physician" class="com.logs_ultimeyesvision_com_devdb.data.Physician">
+            <column name="physician_id"/>
+        </many-to-one>
+        <set name="ultimeyesLogStatics" inverse="true" cascade="">
+            <key>
+                <column name="customer_id"/>
+            </key>
+            <one-to-many class="com.logs_ultimeyesvision_com_devdb.data.UltimeyesLogStatic"/>
+        </set>
+        <set name="ultimeyesLogDynamics" inverse="true" cascade="">
+            <key>
+                <column name="customer_id"/>
+            </key>
+            <one-to-many class="com.logs_ultimeyesvision_com_devdb.data.UltimeyesLogDynamic"/>
+        </set>
+        <set name="customerResellerAssociates" inverse="true" cascade="">
+            <key>
+                <column name="customer_id" not-null="true"/>
+            </key>
+            <one-to-many class="com.logs_ultimeyesvision_com_devdb.data.CustomerResellerAssociate"/>
+        </set>
+        <set name="ultimeyesLogCalibrations" inverse="true" cascade="">
+            <key>
+                <column name="customer_id"/>
+            </key>
+            <one-to-many class="com.logs_ultimeyesvision_com_devdb.data.UltimeyesLogCalibration"/>
+        </set>
+        <set name="customerProductAssociates" inverse="true" cascade="">
+            <key>
+                <column name="customer_id" not-null="true"/>
+            </key>
+            <one-to-many class="com.logs_ultimeyesvision_com_devdb.data.CustomerProductAssociate"/>
+        </set>
+        <set name="internalUploadSessionFiles" inverse="true" cascade="">
+            <key>
+                <column name="customer_id"/>
+            </key>
+            <one-to-many class="com.logs_ultimeyesvision_com_devdb.data.InternalUploadSessionFile"/>
+        </set>
+        <set name="ultimeyesLogSummaries" inverse="true" cascade="">
+            <key>
+                <column name="customer_id"/>
+            </key>
+            <one-to-many class="com.logs_ultimeyesvision_com_devdb.data.UltimeyesLogSummary"/>
+        </set>
+    </class>
+</hibernate-mapping>

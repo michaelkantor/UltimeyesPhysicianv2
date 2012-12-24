@@ -1,0 +1,106 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <meta attribute="@design.default-queries"/>
+    <query name="getSessionIdsForCustomer">
+        <query-param name="customerId" type="java.lang.Integer"/>
+        select Log.internalUploadSessionFile.id as logId, Log.sessionNumber as sessionNumber, Log.dateTaken as dateTaken
+FROM UltimeyesLogSummary as Log
+WHERE Log.internalUploadSessionFile.iterationNumber = 1 AND
+Log.customer.id = :customerId
+ORDER BY Log.sessionNumber
+    </query>
+    <query name="getSummariesByLogFileId">
+        <query-param name="logIdList" type="java.util.List&lt;java.lang.Integer&gt;"/>
+        <query-param name="customerId" type="java.lang.Integer"/>
+        FROM UltimeyesLogSummary as Log
+WHERE
+Log.internalUploadSessionFile.iterationNumber = 1 AND
+Log.internalUploadSessionFile.id IN (:logIdList) AND
+Log.customer.id = :customerId
+ORDER BY Log.id
+    </query>
+    <query name="getSummariesForExerciseId">
+        <query-param name="exerciseId" type="java.lang.Integer"/>
+        <query-param name="customerId" type="java.lang.Integer"/>
+        FROM UltimeyesLogSummary as Log
+WHERE
+Log.internalUploadSessionFile.iterationNumber = 1 AND
+Log.excercise = :exerciseId AND
+Log.customer.id = :customerId
+ORDER BY Log.dateTaken
+    </query>
+    <query name="getCalibrationSessionAndExerciseNumbersForCustomer" comment="Download Logs Page">
+        <query-param name="customerId" type="java.lang.Integer"/>
+        <query-param name="sessionNumberList" type="java.util.List&lt;java.lang.Integer&gt;"/>
+        SELECT
+MAX(sessionNumber) as sessionNumber,
+MAX(dateTaken) as dateTaken,
+internalUploadSessionFile.id as fileId
+FROM UltimeyesLogCalibration
+WHERE
+internalUploadSessionFile.iterationNumber = 1 AND
+customer.id = :customerId AND
+sessionNumber in (:sessionNumberList)
+GROUP BY internalUploadSessionFile.id , sessionNumber
+ORDER BY sessionNumber ASC
+    </query>
+    <query name="getCalibrationLogs" comment="DownloadLogsPage">
+        <query-param name="customerId" type="java.lang.Integer"/>
+        <query-param name="fileIdList" type="java.util.List&lt;java.lang.Integer&gt;"/>
+        FROM UltimeyesLogCalibration  as Log
+WHERE
+Log.internalUploadSessionFile.iterationNumber = 1 AND
+Log.customer.id = :customerId AND
+Log.internalUploadSessionFile.id in (:fileIdList)
+ORDER BY Log.sessionNumber
+    </query>
+    <query name="getStaticSessionAndExerciseNumbersForCustomer">
+        <query-param name="customerId" type="java.lang.Integer"/>
+        <query-param name="sessionNumberList" type="java.util.List&lt;java.lang.Integer&gt;"/>
+        SELECT
+MAX(sessionNumber) as sessionNumber,
+MAX(excerciseNumber) as exerciseNumber,
+MAX(dateTaken) as dateTaken,
+internalUploadSessionFile.id as fileId
+FROM UltimeyesLogStatic
+WHERE internalUploadSessionFile.iterationNumber = 1 AND
+customer.id = :customerId AND
+sessionNumber in (:sessionNumberList)
+GROUP BY internalUploadSessionFile.id , sessionNumber, excerciseNumber
+ORDER BY sessionNumber, excerciseNumber
+    </query>
+    <query name="getDynamicSessionAndExerciseNumbersForCustomer">
+        <query-param name="customerId" type="java.lang.Integer"/>
+        <query-param name="sessionNumberList" type="java.util.List&lt;java.lang.Integer&gt;"/>
+        SELECT
+MAX(sessionNumber) as sessionNumber,
+MAX(excerciseNumber) as exerciseNumber,
+MAX(dateTaken) as dateTaken,
+internalUploadSessionFile.id as fileId
+FROM UltimeyesLogDynamic
+WHERE
+internalUploadSessionFile.iterationNumber = 1 AND
+customer.id = :customerId AND
+sessionNumber in (:sessionNumberList)
+GROUP BY internalUploadSessionFile.id , sessionNumber, excerciseNumber
+ORDER BY sessionNumber ASC, excerciseNumber ASC
+    </query>
+    <query name="getDynamicLogs" comment="DownloadLogsPage">
+        <query-param name="customerId" type="java.lang.Integer"/>
+        <query-param name="fileIdList" type="java.util.List&lt;java.lang.Integer&gt;"/>
+        FROM UltimeyesLogDynamic  as Log
+WHERE
+internalUploadSessionFile.iterationNumber = 1 AND
+Log.customer.id=:customerId AND
+Log.internalUploadSessionFile.id in (:fileIdList)
+    </query>
+    <query name="getStaticLogs">
+        <query-param name="customerId" type="java.lang.Integer"/>
+        <query-param name="fileIdList" type="java.util.List&lt;java.lang.Integer&gt;"/>
+        FROM UltimeyesLogStatic  as Log
+WHERE
+internalUploadSessionFile.iterationNumber = 1 AND
+Log.customer.id=:customerId AND
+Log.internalUploadSessionFile.id in (:fileIdList)
+    </query>
+</hibernate-mapping>

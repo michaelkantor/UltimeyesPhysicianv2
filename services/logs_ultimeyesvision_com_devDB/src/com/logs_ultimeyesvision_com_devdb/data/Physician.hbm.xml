@@ -1,0 +1,60 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.logs_ultimeyesvision_com_devdb.data.Physician" table="physician" schema="public" dynamic-insert="false" dynamic-update="false">
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="firstName" type="string">
+            <column name="first_name" not-null="true"/>
+        </property>
+        <property name="lastName" type="string">
+            <column name="last_name" not-null="true"/>
+        </property>
+        <property name="middleInitial" type="string">
+            <column name="middle_initial" length="5"/>
+        </property>
+        <property name="medicalLicenseNumber" type="string">
+            <column name="medical_license_number"/>
+        </property>
+        <property name="ssn" type="string">
+            <column name="ssn"/>
+        </property>
+        <property name="tin" type="string">
+            <column name="tin"/>
+        </property>
+        <property name="dob" type="date">
+            <column name="dob" length="13"/>
+        </property>
+        <property name="address" type="string">
+            <column name="address"/>
+        </property>
+        <property name="phone" type="string">
+            <column name="phone"/>
+        </property>
+        <property name="email" type="string">
+            <column name="email"/>
+        </property>
+        <property name="password" type="string">
+            <column name="password"/>
+        </property>
+        <property name="createdAt" type="timestamp">
+            <column name="created_at" length="29"/>
+        </property>
+        <property name="updatedAt" type="timestamp">
+            <column name="updated_at" length="29"/>
+        </property>
+        <set name="customers" inverse="true" cascade="">
+            <key>
+                <column name="physician_id"/>
+            </key>
+            <one-to-many class="com.logs_ultimeyesvision_com_devdb.data.Customer"/>
+        </set>
+        <set name="physicianProductAssociates" inverse="true" cascade="">
+            <key>
+                <column name="physician_id" not-null="true"/>
+            </key>
+            <one-to-many class="com.logs_ultimeyesvision_com_devdb.data.PhysicianProductAssociate"/>
+        </set>
+    </class>
+</hibernate-mapping>

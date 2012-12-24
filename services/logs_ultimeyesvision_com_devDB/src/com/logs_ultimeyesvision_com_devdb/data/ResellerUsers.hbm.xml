@@ -1,0 +1,27 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.logs_ultimeyesvision_com_devdb.data.ResellerUsers" table="reseller_users" schema="public" dynamic-insert="false" dynamic-update="false">
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="login" type="string">
+            <column name="login" length="50"/>
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="50"/>
+        </property>
+        <property name="role" type="string">
+            <column name="role" length="100"/>
+        </property>
+        <property name="createdAt" type="timestamp">
+            <column name="created_at" length="29"/>
+        </property>
+        <property name="updatedAt" type="timestamp">
+            <column name="updated_at" length="29"/>
+        </property>
+        <many-to-one name="reseller" class="com.logs_ultimeyesvision_com_devdb.data.Reseller">
+            <column name="reseller_id" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
