@@ -1,5 +1,5 @@
 CustomersPage.widgets = {
-	customerLiveVariable1: ["wm.LiveVariable", {"ignoreCase":true,"orderBy":"asc: lastName, asc: firstName","startUpdate":false,"type":"com.logs_ultimeyesvision_com_devdb.data.Customer"}, {"onPrepareSetData":"customerLiveVariable1PrepareSetData","onSuccess":"customerLiveVariable1Success"}, {
+	customerLiveVariable1: ["wm.LiveVariable", {"ignoreCase":true,"inFlightBehavior":"executeAll","orderBy":"asc: lastName, asc: firstName","startUpdate":false,"type":"com.logs_ultimeyesvision_com_devdb.data.Customer"}, {"onPrepareSetData":"customerLiveVariable1PrepareSetData","onSuccess":"customerLiveVariable1Success"}, {
 		binding: ["wm.Binding", {}, {}, {
 			wire1: ["wm.Wire", {"expression":undefined,"source":"customerDojoGrid","targetProperty":"loadingDialog"}, {}],
 			wire: ["wm.Wire", {"expression":"${app.getUserIdVar.dataValue} || -1","targetProperty":"filter.physician.id"}, {}]
@@ -46,7 +46,7 @@ CustomersPage.widgets = {
 					}]
 				}],
 				downloadLogsLayer: ["wm.Layer", {"borderColor":"","caption":"Download","horizontalAlign":"left","themeStyleType":"","verticalAlign":"top"}, {}, {
-					pageContainer1: ["wm.PageContainer", {"deferLoad":true,"pageName":"DownloadLogsPage"}, {}]
+					pageContainer1: ["wm.PageContainer", {"deferLoad":true,"pageName":"DownloadLogsPage","subpageEventlist":{},"subpageMethodlist":{},"subpageProplist":{}}, {}]
 				}]
 			}]
 		}]
