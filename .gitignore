@@ -1,0 +1,6 @@
+.DS_Store
+export/
+phonegap/
+webapproot/timestamp.txt
+webapproot/WEB-INF/classes
+webapproot/WEB-INF/lib

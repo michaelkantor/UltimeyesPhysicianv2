@@ -11,7 +11,7 @@ dojo.declare("UltimeyesPhysicianv2", wm.Application, {
 	"name": "", 
 	"phoneGapLoginPage": "Login", 
 	"phoneMain": "", 
-	"projectSubVersion": 55, 
+	"projectSubVersion": 56, 
 	"projectVersion": 1, 
 	"studioVersion": "6.5.2.Release", 
 	"tabletMain": "", 
